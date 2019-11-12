@@ -1,0 +1,15 @@
+﻿@page "{restrauntId:int?}"
+@model RestrauntsAgain.Pages.Restraunts.DeletePageModel
+@{
+    ViewData["Title"] = "DeletePage";
+}
+
+<h1>Delete !</h1>
+<div class="text-info">Are you sure you want to delete @Model.Restraunt.Name ?</div>
+
+<form method="post">
+    <button class="btn btn-danger" type="submit">Yes</button>
+    <a class="btn btn-primary" asp-page="./MainPage">Cancel</a>
+</form>
+
+

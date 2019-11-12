@@ -1,0 +1,23 @@
+﻿@page "{restrauntId:int?}"
+@model RestrauntsAgain.Pages.Restraunts.DetailsPageModel
+@{
+    ViewData["Title"] = "DetailsPage";
+}
+
+<h1>Restraunt Details</h1>
+<div>
+    @if (Model.Message != null)
+    {
+        <span class="text-info">@Model.Message</span>
+    }
+</div>
+<div class="card">
+    <div class="card-header">Name: @Model.Restraunt.Name</div>
+    <div class="card-body">
+        <span>Location: @Model.Restraunt.Location</span><br>
+        <span>Cusine: @Model.Restraunt.Cusine</span>
+    </div>
+    <div class="card-footer">
+        <a asp-page="./MainPage" class="btn btn-primary">Go Back</a>
+    </div>
+</div>

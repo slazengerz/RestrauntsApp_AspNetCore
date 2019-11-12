@@ -1,0 +1,18 @@
+{
+  "name": "restrauntsagain",
+  "version": "1.0.0",
+  "description": "Second try of creating restraunts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://slazengerz.github.com"
+  },
+  "author": "Pankaj Sharma",
+  "license": "ISC",
+  "dependencies": {
+    "datatables.net-dt": "^1.10.20"
+  }
+}

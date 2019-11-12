@@ -1,0 +1,40 @@
+﻿@page "{restrauntId:int?}"
+@model RestrauntsAgain.Pages.Restraunts.EditRestrauntModel
+@{
+    ViewData["Title"] = "EditRestraunt";
+}
+
+<h1>@Model.CreateOrEditProperty</h1>
+
+<form method="post">
+
+    <input type="hidden" asp-for="RestrauntToEdit.Id" />
+
+    <div class="form-group">
+        <label for="RestrauntToEdit.Name">Name</label>
+        <input class="form-control" asp-for="RestrauntToEdit.Name" />
+        <span class="text-danger" asp-validation-for="RestrauntToEdit.Name"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="RestrauntToEdit.Location">Location</label>
+        <input class="form-control" asp-for="RestrauntToEdit.Location" />
+        <span class="text-danger" asp-validation-for="RestrauntToEdit.Location"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="RestrauntToEdit.Cusine">Cusine</label>
+        <select class="form-control" asp-for="RestrauntToEdit.Cusine"
+                asp-items="Model.CusineOptions"></select>
+        <span class="text-danger" asp-validation-for="RestrauntToEdit.Cusine"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary" asp-page="./EditRestraunt">Save</button>
+    <a asp-page="./MainPage" class="btn btn-primary">Cancel</a>
+
+    @section Scripts{ 
+    <partial name="_ValidationScriptsPartial"/>
+    }
+
+</form>
+

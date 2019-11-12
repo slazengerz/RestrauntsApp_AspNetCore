@@ -1,0 +1,17 @@
+﻿@using RestrauntDataNetCore
+
+<div class="card">
+    <div class="card card-header">@Model.Name</div>
+    <div class="card card-body">
+        <span>Location:@Model.Location</span>
+        <span>Cusine:@Model.Cusine</span>
+    </div>
+    <div class="card card-footer">
+        <span>
+        <a asp-page="./DetailsPage" asp-route-restrauntId=@Model.Id class="btn btn-sm btn-primary">Details</a>
+        <a asp-page="./EditRestraunt" asp-route-restrauntId=@Model.Id class="btn btn-sm btn-secondary">Edit</a>
+        <a asp-page="./DeletePage" asp-route-restrauntId=@Model.Id class="btn btn-sm btn-dark">Delete</a>
+        </span>
+    </div>
+</div>
+

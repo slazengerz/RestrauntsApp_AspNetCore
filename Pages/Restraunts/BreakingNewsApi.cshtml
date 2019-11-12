@@ -1,0 +1,33 @@
+﻿@page
+
+<table class="table" id="newsTable">
+</table>
+
+@section Scripts{
+
+    <environment include="Development">
+        <script src="~/node_modules/datatables.net/js/jquery.dataTables.js"></script>
+        <script src="~/node_modules/datatables.net-dt/js/dataTables.dataTables.js"></script>
+        <link href="~/node_modules/datatables.net-dt/css/jquery.dataTables.css" rel="stylesheet" />
+    </environment>
+
+    <script>
+        $(function () {
+            $.ajax("https://newsapi.org/v2/everything?apikey=569096877a33493f94d04224ab6ebfe0&q=india", { method: "get" }).then(function (response) {
+                console.dir(response);
+                $("#newsTable").dataTable({
+                    data: response.articles,
+                    columns: [
+                        { "data": "title" },
+                        { "data": "url" },
+                        { "data": "source.id" },
+                        {"data":"publishedAt"}
+                    ]
+                });
+            });
+
+        });
+
+    </script>
+
+}

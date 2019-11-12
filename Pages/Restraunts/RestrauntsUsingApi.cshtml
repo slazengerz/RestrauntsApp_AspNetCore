@@ -1,0 +1,45 @@
+﻿@page
+
+<table class="table" id="apiTable">
+</table>
+
+
+@section Scripts{
+
+    <environment include="Development">
+        <script src="~/node_modules/datatables.net/js/jquery.dataTables.js"></script>
+        <script src="~/node_modules/datatables.net-dt/js/dataTables.dataTables.js"></script>
+        <link href="~/node_modules/datatables.net-dt/css/jquery.dataTables.css" rel="stylesheet" />
+    </environment>
+    <environment exclude="Development">
+        <script src="~/node_modules/datatables.net/js/jquery.dataTables.js"></script>
+        <script src="~/node_modules/datatables.net-dt/js/dataTables.dataTables.js"></script>
+        <link href="~/node_modules/datatables.net-dt/css/jquery.dataTables.css" rel="stylesheet" />
+    </environment>
+
+    <script>
+        $(function () {
+            $.ajax("/api/Restraunts", { method: "get" })
+                .then(function (response) {
+                    console.dir("Response" + JSON.stringify(response));
+                    $("#apiTable").dataTable({
+                        data: response,
+                        columnDefs: [
+                            { "title": "Id", "targets": 0 },
+                            { "title": "Name", "targets": 1 },
+                            { "title": "Location", "targets": 2 },
+                            { "title": "Cuisine", "targets": 3 }
+                        ],
+                        columns: [
+                            { "data": "id" },
+                            { "data": "name" },
+                            { "data": "location" },
+                            { "data": "cusineDescr" }
+                        ]
+                    });
+                });
+        });
+    </script>
+}
+
+
